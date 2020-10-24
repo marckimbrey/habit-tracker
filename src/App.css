@@ -1,5 +1,57 @@
 .App {
+  background: #222;
+  color: #ddd;
+  height: 100vh;
 }
 
+/* HEADER */
 .App-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1.5rem;
+}
+
+.add-habit-button,
+.add-habit {
+  height: 60px;
+  opacity: 0.5;
+  border-radius: 100px;
+  background: #ddd;
+  transition: all 0.5s;
+  color: #ddd;
+}
+.add-habit-button {
+  width: 60px;
+}
+
+.add-habit {
+  display: flex;
+  align-items: center;
+  width: 90%;
+}
+
+.add-habit-input {
+  border-radius: 100px;
+  margin: 0 3%;
+}
+
+.add-habit-input:active {
+  opacity: 1;
+  background: #ddd;
+}
+
+.add-habit-input {
+  height: 25px;
+}
+
+.add-habit label {
+  color: #222;
+  margin-left: 5%;
+  font-weight: bold;
+}
+
+.add-habit-close {
+  border-radius: 100px;
+  color: red;
+  margin-right: 3%;
 }
