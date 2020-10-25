@@ -1,14 +1,22 @@
 import React from "react";
 
 function AddHabitInput(props) {
+  //const closeHabitBtn = props.isMobile === 60? <div className="add-habit-close" onClick={props.toggleInput}></div>: '';
   return (
-    <div className="add-habit">
+    <form className="add-habit">
       <label for="add-habit">add habit</label>
       <input className="add-habit-input" name="add-habit" type="text" />
-      <div className="add-habit-close" onClick={props.toggleInput}>
-        close
-      </div>
-    </div>
+      <button
+        type="submit"
+        onClick={(e) => {
+          e.preventDefault();
+          const input = document.querySelector(".add-habit-input");
+          props.addHabit(input.value);
+        }}
+      >
+        submit
+      </button>
+    </form>
   );
 }
 

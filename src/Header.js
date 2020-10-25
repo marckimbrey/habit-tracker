@@ -27,9 +27,15 @@ class Header extends React.Component {
   render() {
     const active = this.state.inputActive;
     let input;
-    if (active) {
+    if (active || window.innerWidth > 600) {
       // if button clicked or large screen
-      input = <AddHabitInput toggleInput={(e) => this.toggleInput(e)} />;
+      input = (
+        <AddHabitInput
+          addHabit={this.props.addHabit}
+          toggleInput={(e) => this.toggleInput(e)}
+          isMobile={this.state.width}
+        />
+      );
     } else {
       input = (
         <AddHabitButton

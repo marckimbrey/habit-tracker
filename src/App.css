@@ -55,3 +55,14 @@
   color: red;
   margin-right: 3%;
 }
+
+@media (min-width: 600px) {
+  .add-habit {
+    background: #222;
+    color: #ddd;
+    justify-content: flex-end;
+  }
+  .add-habit label {
+    color: #ddd;
+  }
+}
