@@ -66,3 +66,29 @@
     color: #ddd;
   }
 }
+
+/* habits display */
+.habit-list {
+  padding: 10% 5%;
+  width: 100%;
+}
+
+.habit {
+  text-align: center;
+}
+
+.habit-title {
+  text-align: left;
+  font-size: 1.25em;
+}
+.habit-title:nth-child(1) {
+  color: #fc3;
+}
+.habit-title:nth-child(2) {
+  color: #df4;
+}
+
+.habit-check {
+  font-size: 1.25em;
+  color: #bbb;
+}

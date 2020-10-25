@@ -30,7 +30,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header addHabit={this.addHabit.bind(this)}></Header>
-        <HabitList />
+        <HabitList habits={this.state.habits} />
       </div>
     );
   }
