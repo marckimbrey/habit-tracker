@@ -22,7 +22,22 @@ class App extends React.Component {
   }
 
   checkDay(name, day) {
-    //this.setState{habits:}
+    const newState = this.state.habits.slice();
+    const newHabit = newState.filter((habit) => (habit.name = name))[0];
+    const index = newHabit.days.indexOf(day);
+    if (index >= 0) {
+      newHabit.days.splice(index, 1);
+    } else {
+      newHabit.days.push(day);
+    }
+    const updatedState = newState.map((habit) => {
+      if (habit.name === newHabit.name) {
+        return newHabit;
+      } else {
+        return habit;
+      }
+    });
+    this.setState({ habits: updatedState });
   }
 
   deleteHabit() {}
@@ -30,7 +45,10 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header addHabit={this.addHabit.bind(this)}></Header>
-        <HabitList habits={this.state.habits} />
+        <HabitList
+          habits={this.state.habits}
+          checkDay={this.checkDay.bind(this)}
+        />
       </div>
     );
   }

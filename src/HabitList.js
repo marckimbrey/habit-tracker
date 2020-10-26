@@ -10,12 +10,11 @@ function HabitList(props) {
     let day = date.getUTCDate();
     dates[x] = day + "/" + month;
   }
-  console.log(dates);
   return (
     <table className="habit-list">
       <thead>
         <tr>
-          <tr></tr>
+          <th></th>
           {dates.map((date, i) => {
             return <th key={i}>{date}</th>;
           })}
@@ -23,7 +22,14 @@ function HabitList(props) {
       </thead>
       <tbody>
         {props.habits.map((habit, i) => {
-          return <Habit habit={habit} key={i} />;
+          return (
+            <Habit
+              habit={habit}
+              dates={dates}
+              checkDay={props.checkDay}
+              key={i}
+            />
+          );
         })}
       </tbody>
     </table>
