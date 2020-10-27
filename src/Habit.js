@@ -8,7 +8,6 @@ class Habit extends React.Component {
     const selected = this.props.dates.filter((date) => {
       return this.props.habit.days.indexOf(date) !== -1;
     });
-    console.log(selected);
     this.state = { selected: selected };
   }
   updateSelected(date) {
@@ -22,11 +21,16 @@ class Habit extends React.Component {
     this.setState({ selected: selectedDates });
   }
 
+  daysOld(dateString) {
+    const diff = Date.now() - dateString;
+    return Math.round(diff / (1000 * 60 * 60 * 24)) + 1; //
+  }
+
   render() {
+    let daysOld = this.daysOld(this.props.habit.dateStarted);
     return (
       <tr className="habit">
         <td className="habit-title">{this.props.habit.name}</td>
-
         {this.props.dates.map((date, i) => {
           let color = "#666";
           if (this.state.selected.indexOf(date) !== -1) {
@@ -47,30 +51,12 @@ class Habit extends React.Component {
             </td>
           );
         })}
+        <td className="habit-total">
+          {this.props.habit.days.length + "/" + daysOld}
+        </td>
       </tr>
     );
   }
 }
 
 export default Habit;
-// <td>
-//   <FontAwesomeIcon className="habit-check" icon={faCheck} />
-// </td>
-// <td>
-//   <FontAwesomeIcon className="habit-check" icon={faCheck} />
-// </td>
-// <td>
-//   <FontAwesomeIcon className="habit-check" icon={faCheck} />
-// </td>
-// <td>
-//   <FontAwesomeIcon className="habit-check" icon={faCheck} />
-// </td>
-// <td>
-//   <FontAwesomeIcon className="habit-check" icon={faCheck} />
-// </td>
-// <td>
-//   <FontAwesomeIcon className="habit-check" icon={faCheck} />
-// </td>
-// <td>
-//   <FontAwesomeIcon className="habit-check" icon={faCheck} />
-// </td>
