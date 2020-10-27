@@ -30,11 +30,22 @@ class Habit extends React.Component {
     let daysOld = this.daysOld(this.props.habit.dateStarted);
     return (
       <tr className="habit">
-        <td className="habit-title">{this.props.habit.name}</td>
+        <td>
+          <button
+            className={"delete-btn"}
+            value={this.props.habit.dateStarted}
+            onClick={(e) => this.props.deleteHabit(e.target.value)}
+          >
+            X
+          </button>
+        </td>
+        <td className="habit-title" style={{ color: this.props.color }}>
+          {this.props.habit.name}
+        </td>
         {this.props.dates.map((date, i) => {
           let color = "#666";
           if (this.state.selected.indexOf(date) !== -1) {
-            color = "#fc3";
+            color = this.props.color;
           }
           return (
             <td key={i}>
@@ -51,7 +62,7 @@ class Habit extends React.Component {
             </td>
           );
         })}
-        <td className="habit-total">
+        <td className="habit-total" style={{ color: this.props.color }}>
           {this.props.habit.days.length + "/" + daysOld}
         </td>
       </tr>

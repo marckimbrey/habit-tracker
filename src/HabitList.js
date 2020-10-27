@@ -15,6 +15,7 @@ function HabitList(props) {
       <thead>
         <tr>
           <th></th>
+          <th></th>
           {dates.map((date, i) => {
             return <th key={i}>{date}</th>;
           })}
@@ -22,11 +23,14 @@ function HabitList(props) {
       </thead>
       <tbody>
         {props.habits.map((habit, i) => {
+          let color = i % 2 === 0 ? "#fc3" : "#c8f";
           return (
             <Habit
               habit={habit}
               dates={dates}
+              color={color}
               checkDay={props.checkDay}
+              deleteHabit={props.deleteHabit}
               key={i}
             />
           );

@@ -69,31 +69,52 @@
 
 /* habits display */
 .habit-list {
-  padding: 10% 5%;
+  padding: 10% 0;
   width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 1em;
 }
 
 .habit {
   text-align: center;
 }
 
-.habit-title {
-  text-align: left;
-  font-size: 1.25em;
-}
-.habit-title:nth-child(1) {
-  color: #fc3;
-}
-.habit-title:nth-child(2) {
-  color: #df4;
+.habit:hover {
+  box-shadow: 0 0 4px #bbb;
 }
 
-.habit-check {
-  font-size: 1.25em;
-  color: #666;
+.delete-btn {
+  background: #e66;
+  border-radius: 10px;
+  color: #ddd;
+}
+
+.delete-btn:hover {
+  background: #f44;
+  font-weight: bold;
+}
+
+.habit-title {
+  text-align: left;
+}
+
+th {
+  font-size: 0.75em;
 }
 
 .habit-total {
-  font-size: 1.25em;
   color: #fc3;
+}
+
+@media (min-width: 500px) {
+  .habit-title,
+  .habit-check,
+  .habit-total,
+  th {
+    font-size: 1.25em;
+  }
+
+  .habit-list {
+    padding: 10% 5%;
+  }
 }
