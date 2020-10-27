@@ -6,9 +6,11 @@ import HabitList from "./HabitList";
 class App extends React.Component {
   constructor(props) {
     super(props);
+    console.log(localStorage.getItem("habits"));
     // set habit state from localStorage
     if (window.localStorage["habits"]) {
       // get habits from localStorage
+      this.state = { habits: JSON.parse(localStorage.getItem("habits")) };
     } else {
       this.state = {
         habits: [
@@ -25,7 +27,7 @@ class App extends React.Component {
   addHabit(habit) {
     const newHabit = { name: habit, days: [], dateStarted: Date.now() };
     const newHabitState = [...this.state.habits, newHabit];
-    localStorage.setItem("habit", JSON.stringify(newHabitState));
+    localStorage.setItem("habits", JSON.stringify(newHabitState));
     this.setState({ habits: newHabitState });
   }
 
@@ -45,6 +47,7 @@ class App extends React.Component {
         return habit;
       }
     });
+    localStorage.setItem("habits", JSON.stringify(updatedState));
     this.setState({ habits: updatedState });
   }
 
