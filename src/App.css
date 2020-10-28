@@ -10,60 +10,65 @@
   justify-content: flex-end;
   padding: 1.5rem;
 }
-
-.add-habit-button,
-.add-habit {
-  height: 60px;
-  opacity: 0.5;
-  border-radius: 100px;
-  background: #ddd;
-  transition: all 0.5s;
-  color: #ddd;
+.title {
+  color: #fc3;
 }
-.add-habit-button {
-  width: 60px;
+
+.title span {
+  color: #c8f;
 }
 
 .add-habit {
   display: flex;
   align-items: center;
   width: 90%;
+  background: #222;
+  justify-content: flex-end;
 }
 
 .add-habit-input {
   border-radius: 100px;
   margin: 0 3%;
+  opacity: 0.7;
+  background: #eee;
+  color: #ddd;
 }
 
+.add-habit-input:focus,
 .add-habit-input:active {
   opacity: 1;
-  background: #ddd;
+  font-weight: bold;
 }
 
 .add-habit-input {
   height: 25px;
 }
 
+.add-habit button {
+  border-radius: 100px;
+  padding: 0.2em 0.5em;
+  font-weight: bold;
+  background: #eee;
+  opacity: 0.7;
+}
+
+.add-habit button:hover {
+  opacity: 1;
+}
+
 .add-habit label {
-  color: #222;
   margin-left: 5%;
   font-weight: bold;
+  color: #ddd;
 }
 
-.add-habit-close {
-  border-radius: 100px;
-  color: red;
-  margin-right: 3%;
-}
-
-@media (min-width: 600px) {
-  .add-habit {
-    background: #222;
-    color: #ddd;
-    justify-content: flex-end;
+@media (max-width: 600px) {
+  .App-header {
+    display: block;
+    padding: 5% 0;
   }
-  .add-habit label {
-    color: #ddd;
+  .add-habit {
+    width: 95%;
   }
 }
 
@@ -72,11 +77,12 @@
   padding: 10% 0;
   width: 100%;
   border-collapse: separate;
-  border-spacing: 0 1em;
+  border-spacing: 0 2em;
 }
 
 .habit {
   text-align: center;
+  margin: ;
 }
 
 .habit:hover {
@@ -99,14 +105,14 @@
 }
 
 th {
-  font-size: 0.75em;
+  font-size: 0.6em;
 }
 
 .habit-total {
   color: #fc3;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 450px) {
   .habit-title,
   .habit-check,
   .habit-total,
