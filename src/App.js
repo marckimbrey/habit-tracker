@@ -25,6 +25,7 @@ class App extends React.Component {
   }
 
   addHabit(habit) {
+    if (habit === "") return;
     const newHabit = { name: habit, days: [], dateStarted: Date.now() };
     const newHabitState = [...this.state.habits, newHabit];
     localStorage.setItem("habits", JSON.stringify(newHabitState));
