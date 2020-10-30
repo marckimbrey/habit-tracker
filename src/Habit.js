@@ -47,20 +47,24 @@ class Habit extends React.Component {
           if (this.state.selected.indexOf(date) !== -1) {
             color = this.props.color;
           }
-          return (
-            <td key={i}>
-              <FontAwesomeIcon
-                className="habit-check"
-                icon={faCheck}
-                key={date}
-                style={{ color: color }}
-                onClick={() => {
-                  this.props.checkDay(this.props.habit.name, date);
-                  this.updateSelected(date);
-                }}
-              />
-            </td>
-          );
+          if (i < this.daysOld(this.props.habit.dateStarted)) {
+            return (
+              <td key={i}>
+                <FontAwesomeIcon
+                  className="habit-check"
+                  icon={faCheck}
+                  key={date}
+                  style={{ color: color }}
+                  onClick={() => {
+                    this.props.checkDay(this.props.habit.name, date);
+                    this.updateSelected(date);
+                  }}
+                />
+              </td>
+            );
+          } else {
+            return <td key={i}></td>;
+          }
         })}
         <td className="habit-total" style={{ color: this.props.color }}>
           {this.props.habit.days.length + "/" + daysOld}
